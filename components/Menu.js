@@ -2,8 +2,7 @@ import { ScrollView, Text, View } from 'react-native'
 import { MenuItem } from './MenuItem'
 
 const green = '#495E57'
-const yellow = '#F4CE14'
-const lastMenu = ' \n  \n  \n  \n  \n  \n \n \n  \n  \n'
+
 const menuItemsToDisplay = [
   {name: 'Humus',price: '$5'},
   {name: 'Moutabal',price: '$7'},
@@ -40,7 +39,13 @@ export const Menu = () => {
         }}>View Menu</Text>
         {
           menuItemsToDisplay.map(i=>
-            <MenuItem key={i.name} item={{name:i.name, price:i.price}}/>
+            <MenuItem 
+              key={i.name} 
+              item={{
+                name:i.name, 
+                price:i.price}
+              }
+            />
           )
         }
       </ScrollView>
