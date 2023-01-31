@@ -11,13 +11,14 @@ export const Header = () => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor:"#F4CE14",
-    flex: 0.12
+    flex: 0.14
   },
   headerText: {
     color: "black",
     fontSize: 30,
     padding: 40,
     marginTop:20,
+    marginBottom: 10,
     textAlign: 'center'
   }
 })
