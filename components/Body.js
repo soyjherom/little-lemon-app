@@ -1,12 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, ScrollView, View } from 'react-native'
 import { Welcome } from './Welcome';
 import { Description } from './Description'
+import { Menu } from './Menu'
+
+const green = '#495E57'
 
 export const Body = () => {
   return (
     <View style={styles.bodyContainer}>
-      <Welcome/>
-      <Description/>
+      <ScrollView 
+      horizontal={false}
+      indicatorStyle={'white'}
+      style={{
+        backgroundColor: green,
+      }}>
+        <Welcome/>
+        <Description/>
+        <Menu/>
+      </ScrollView>
     </View>
   )
 }

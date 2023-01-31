@@ -1,0 +1,24 @@
+
+import { StyleSheet, Text, View } from 'react-native'
+
+export const MenuItem = ({ item }) => {
+  return (
+    <View style={styles.itemContainer}>
+      <Text style={styles.item}>{item.name} </Text>
+      <Text style={styles.item}>{item.price}</Text>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  item: {margin: 10},
+  itemContainer: {
+    backgroundColor: '#F4CE14',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: '5px',
+    margin: 5,
+  }
+})
