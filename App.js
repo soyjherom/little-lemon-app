@@ -3,12 +3,18 @@ import { StyleSheet, View } from 'react-native';
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { Body } from './components/Body'
+import { FeedbackForm } from './components/Feedback'
 
 export default function App() {
+
+  const showBody = false
+  const showFeedbackForm = true
+
   return (
     <View style={styles.container}>
       <Header/>
-      <Body/>
+      { showBody && <Body/> }
+      { showFeedbackForm && <FeedbackForm/>}
       <Footer/>
       <StatusBar style="auto" />
     </View>
