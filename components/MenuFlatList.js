@@ -1,12 +1,13 @@
 import uuid from 'react-native-uuid'
 import { 
   FlatList, 
-  StyleSheet,
-  Text,
   View 
 } from 'react-native'
 import { useCallback } from 'react'
 import { MenuItem } from './MenuItem'
+import { MenuHeader } from './MenuHeader'
+import { MenuFooter } from './MenuFooter'
+import { Separator } from './MenuSeparator'
 
 const menuItemsToDisplay = [
   {name: 'Humus',price: '$5', id: uuid.v4()},
@@ -27,31 +28,7 @@ const menuItemsToDisplay = [
   {name: 'Baklava',price: '$3', id: uuid.v4()},
 ]
 
-const green = '#495E57'
-
-const Separator = () => {
-  return <View style={styles.separator}></View>
-}
-
-const MenuHeader = () => {
-  return (
-    <View style={styles.listHeader}>
-      <Text style={styles.listHeaderText}>Menu</Text>
-    </View>
-  )
-}
-
-const MenuFooter = () => {
-  return (
-    <View style={styles.listFooter}>
-      <Text style={styles.listFooterText}>
-        Select and add elements to buy
-      </Text>
-    </View>
-  )
-}
-
-export const MenuFlatList = () => {
+export const Menu = () => {
   
   const itemToRender = useCallback(
     ({item}) => <MenuItem item={item}/>
@@ -66,34 +43,9 @@ export const MenuFlatList = () => {
         renderItem={itemToRender}
         keyExtractor={handleExtraction}
         ItemSeparatorComponent={<Separator/>}
-        ListHeaderComponent={<MenuHeader/>}
-        ListFooterComponent={<MenuFooter/>}
+        ListHeaderComponent={<MenuHeader text={'Menu'}/>}
+        ListFooterComponent={<MenuFooter text={'Select and add elements to buy'}/>}
       />
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  separator: {
-    borderBottomWidth: 1,
-    borderColor: green
-  },
-  listHeader: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  listHeaderText: {
-    color: 'white',
-    fontSize: 25
-  },
-  listFooter: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  listFooterText: {
-    color: 'white',
-    fontSize: 12
-  }
-})
