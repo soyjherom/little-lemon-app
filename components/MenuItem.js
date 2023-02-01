@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'red',
   },
-  item: {margin: 10},
+  item: {margin: 10, marginTop:20, marginBottom: 20},
   itemContainer: {
     backgroundColor: '#F4CE14',
     flex: 1,
@@ -76,6 +76,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: '5px',
-    margin: 5,
   }
 })

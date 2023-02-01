@@ -1,7 +1,7 @@
 import { StyleSheet, ScrollView, View } from 'react-native'
 import { Welcome } from './Welcome';
 import { Description } from './Description'
-import { Menu } from './Menu'
+import { MenuFlatList } from './MenuFlatList'
 
 const green = '#495E57'
 
@@ -16,7 +16,7 @@ export const Body = () => {
       }}>
         <Welcome/>
         <Description/>
-        <Menu/>
+        <MenuFlatList/>
       </ScrollView>
     </View>
   )
