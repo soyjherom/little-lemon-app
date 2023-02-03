@@ -9,10 +9,10 @@ import { SignInForm } from './components/SignIn';
 
 export default function App() {
 
-  const showBody = false
+  const showBody = true
   const showFeedbackForm = false
   const showSignUpForm = false
-  const showSignInForm = true
+  const showSignInForm = false
 
   return (
     <View style={styles.container}>
