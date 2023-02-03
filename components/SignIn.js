@@ -1,6 +1,7 @@
 import { 
-  KeyboardAvoidingView, 
+  Alert,
   Button,
+  KeyboardAvoidingView, 
   Platform,
   ScrollView,
   StyleSheet,
@@ -16,12 +17,24 @@ export const SignInForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
+  const handleOnFocusUsername = useCallback(()=>{
+    Alert.alert('Username has been focussed!')
+  },[])
+  const handleOnFocusPassword = useCallback(()=>{
+    Alert.alert('Password has been focussed!')
+  },[])
+
+  const handleOnBlurOrOnUnFocusUsername = useCallback(()=>{
+    Alert.alert('Username has been unfocussed!')
+  },[])
+
   const handleOnChangeUsername = useCallback((input)=>{
     setUsername(input)
   },[])
   const handleOnChangePassword = useCallback((input)=>{
     setPassword(input)
   },[])
+
   const handleOnPressSignInButton = useCallback(()=>{
     const user = {
       username: username,
@@ -50,12 +63,17 @@ export const SignInForm = () => {
         <TextInput style={styles.input}
           value={username}
           onChangeText={handleOnChangeUsername}
-          placeholder={'Username'}/>
+          onFocus={handleOnFocusUsername}
+          onBlur={handleOnBlurOrOnUnFocusUsername}
+          placeholder={'Username'}
+          clearButtonMode={"always"}/>
         <TextInput style={styles.input}
           value={password}
           onChangeText={handleOnChangePassword}
+          onFocus={handleOnFocusPassword}
           placeholder={'Password'}
-          secureTextEntry={true}/>
+          secureTextEntry={true}
+          clearButtonMode={"always"}/>
         <View style={styles.buttonContainer}>
           <Button title='Cancel'
             color={yellow}
