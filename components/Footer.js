@@ -10,7 +10,7 @@ export const Footer = () => {
 
 const styles = StyleSheet.create({
   footer: {
-    backgroundColor:"#F4CE14",
+    backgroundColor:"#FFF979",
     marginBottom: 10
   },
   footerText: {

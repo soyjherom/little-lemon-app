@@ -10,39 +10,57 @@ const menuElements = [
   {
     title: 'Appetizers',
     data: [
-      {name: 'Humus',price: '$5', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'], image:'https://www.simplyrecipes.com/thmb/J-X1xpDU2606pUXnmL4a7409sHk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2017__12__easy-hummus-vertical-a-1800-2ee0f05419d744bcb85017bce019c7bf.jpg'},
-      {name: 'Moutabal',price: '$7',  id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'}, 
-      {name: 'Falafel',price: '$5', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Marinated Olives',price: '$3', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Kofta',price: '$4', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Eggplant Salad',price: '$10', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
+      {accessibilityLabel: "Hummus Dish Image", name: 'Humus',price: '$5', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'], 
+      image:require('../images/Hummus.png')},
+      {accessibilityLabel: "Moutabal Dish Image", name: 'Moutabal',price: '$7',  id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/Moutabal.png')}, 
+      {name: 'Falafel',price: '$5', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/Falafel.png')},
+      {name: 'Marinated Olives',price: '$3', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/MarinatedOlives.png')},
+      {name: 'Kofta',price: '$4', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/Kofta.png')},
+      {name: 'Eggplant Salad',price: '$10', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/EggplantSalad.png')},
     ]
   },
   {
     title:'Main dishes',
     data:[
-      {name: 'Lentil Burger',price: '$15', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Smoked Salmon',price: '$25', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Kafta Burger',price: '$14', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Turkish Kebab',price: '$15', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
+      {name: 'Lentil Burger',price: '$15', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/LentilBurger.png')},
+      {name: 'Smoked Salmon',price: '$25', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/SmokedSalmon.png')},
+      {name: 'Kafta Burger',price: '$14', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/KaftaBurger.png')},
+      {name: 'Turkish Kebab',price: '$15', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/TurkishKebab.png')},
     ]
   },
   {
     title: 'Sides',
     data: [
-      {name: 'Fries',price: '$5', id: uuid.v4()},
-      {name: 'Buttered Rice',price: '$7', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Bread sticks',price: '$3', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Pita Pocket',price: '$3', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Lentil Soup',price: '$8', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Greek Salad',price: '$10', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
-      {name: 'Rice Pilaf',price: '$9', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
+      {name: 'Fries',price: '$5', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/Fries.png')},
+      {name: 'Buttered Rice',price: '$7', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/ButteredRice.png')},
+      {name: 'Bread sticks',price: '$3', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/BreadSticks.png')},
+      {name: 'Pita Pocket',price: '$3', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/PitaPocket.png')},
+      {name: 'Lentil Soup',price: '$8', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/LentilSoup.png')},
+      {name: 'Greek Salad',price: '$10', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/GreekSalad.png')},
+      {name: 'Rice Pilaf',price: '$9', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/RicePilaf.png')},
     ]
   },
   {
     title: 'Desserts',
     data: [
-      {name: 'Baklava',price: '$3', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],image:'https://picsum.photos/200'},
+      {name: 'Baklava',price: '$3', id: uuid.v4(), ingredients: ['potato', 'tomato', 'tobaco', 'olive oil'],
+      image:require('../images/Baklava.png')},
     ]
   }
 ]

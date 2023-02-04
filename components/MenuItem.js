@@ -6,7 +6,7 @@ import {
   TouchableHighlight, 
   View } from 'react-native'
 
-import { useCallback, useState } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 
 import NumericInput from 'react-native-numeric-input'
 
@@ -14,13 +14,27 @@ export const MenuItem = ({ item }, key) => {
   
   const [selected, setSelected] = useState(false)
   const [quantity, setQuantity] = useState(1)
+  const [isAccessible, setIsAccessible] = useState(false)
+  const [accessibilityLabel, setAccessibilityLabel] = useState('')
+
+  useEffect(()=>{
+    console.log(item)
+    if(item.accessibilityLabel){
+      setIsAccessible(true)
+      setAccessibilityLabel(item.accessibilityLabel)
+    }
+  },[item])
+
+  useEffect(()=>{
+    if(accessibilityLabel) console.log(accessibilityLabel)
+  },[accessibilityLabel])
   
   const toggleSelected = useCallback(()=>{
+    console.log(item.id)
     setSelected(!selected)
   },[setSelected, selected])
   
   const addToCar = useCallback(()=>{
-    console.log(`Adding to car: ${item.name}`)
     setSelected(false)
   },[setSelected])
 
@@ -39,6 +53,10 @@ export const MenuItem = ({ item }, key) => {
         <TouchableHighlight style={styles.itemContainer}
           onPress = {toggleSelected}>
           <View style={styles.itemContainer}>
+            <Image style={styles.logo} 
+              source={item.image}
+              accessible={isAccessible}
+              accessibilityLabel={accessibilityLabel}/>
             <Text style={styles.item}>{item.name} </Text>
             <Text style={styles.item}>{item.price}</Text>
           </View>
@@ -48,8 +66,6 @@ export const MenuItem = ({ item }, key) => {
       <View style={styles.dishCard}>
         <Text style={styles.dishCardHeading}>Ingredients</Text>
         <View style={styles.dishIngredients}>
-          <Image style={styles.logo} 
-            source={{uri:item.image}}/>
           <View style={styles.dishIngredient}>
             {item.ingredients?.map(i => 
               <Text>{i}</Text>
@@ -124,7 +140,7 @@ const styles = StyleSheet.create({
   },
   item: {margin: 10, marginTop:20, marginBottom: 20},
   itemContainer: {
-    backgroundColor: '#F4CE14',
+    backgroundColor: "#FFF979",
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',

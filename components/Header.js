@@ -1,17 +1,25 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet } from 'react-native'
 
 export const Header = () => {
   return (
     <View style={styles.header}>
-      <Text style={styles.headerText}>Little Lemon</Text>
+      <Image style={styles.logo}
+        source={require('../assets/little-lemon-logo.png')}/>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  logo: {
+    height: 100,
+    width: 300,
+    resizeMode: 'contain'
+  },
   header: {
-    backgroundColor:"#F4CE14",
-    flex: 0.14
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+    backgroundColor:"#FFF979",
+    flex: 0.2
   },
   headerText: {
     color: "black",
