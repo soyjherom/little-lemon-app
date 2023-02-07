@@ -75,10 +75,10 @@ export const SignInForm = () => {
           secureTextEntry={true}
           clearButtonMode={"always"}/>
         <View style={styles.buttonContainer}>
-          <Button title='Cancel'
+          <Button title='Create Account'
             color={yellow}
             onPress={handleOnPressCancelButton}/>
-          <Button title='Sign In'
+          <Button title='Login'
             color={yellow}
             onPress={handleOnPressSignInButton}/>
         </View>
@@ -89,7 +89,8 @@ export const SignInForm = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#495E57',
   },
   header: {
     fontSize: 28,
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row'
   },

@@ -1,11 +1,11 @@
 import { 
   Pressable, 
   StyleSheet, 
-  ScrollView, 
   Text, 
+  useColorScheme,
   View 
 } from 'react-native'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Welcome } from './Welcome';
 import { Description } from './Description'
 import { Menu } from './MenuSectionList'
@@ -15,22 +15,36 @@ const yellow = '#F4CE14'
 
 export const Body = () => {
 
+  const colorScheme = useColorScheme()
+
+  useEffect(()=>{
+    if(colorScheme) console.log(colorScheme)
+  },[colorScheme])
+
   const [ showMenu, setShowMenu ] = useState(false)
 
   const handleOnPressShowMenu = useCallback(()=>{
     setShowMenu(!showMenu)
   },[showMenu, setShowMenu])
 
+  const [showPressableCallToMenu] = useState(false)
+
   return (
-    <View style={styles.bodyContainer}>      
+    <View style={[
+      styles.bodyContainer, 
+      colorScheme==='dark' ? 
+        styles.darkScheme : 
+        styles.lightScheme]}>      
       {!showMenu && <>
         <Welcome/>
         <Description/>
       </>}
-      <Pressable style={styles.button}
-        onPressOut={handleOnPressShowMenu}>
-        <Text style={styles.buttonText}>Show the menu</Text>
-      </Pressable>
+      { showPressableCallToMenu && 
+        <Pressable style={styles.button}
+          onPressOut={handleOnPressShowMenu}>
+          <Text style={styles.buttonText}>Show the menu</Text>
+        </Pressable>
+      }
       {showMenu && <View style={{flex:1, width: '100%'}}>
         <Text style={styles.notes}>
           IVA and Service Taxes Included in the price
@@ -67,10 +81,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 32
   },
-  bodyContainer:{
+  bodyContainer: {
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
+  },
+  darkScheme: {
     backgroundColor: green
+  },
+  lightScheme: {
+    backgroundColor: '#C7F6B6',
   }
 })

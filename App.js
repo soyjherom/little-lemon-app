@@ -1,28 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { Header } from './components/Header'
-import { Footer } from './components/Footer'
-import { Body } from './components/Body'
+import { StyleSheet, View } from 'react-native'
+import { WelcomeScreen } from './Screens/WelcomeScreen'
+import { MenuScreen } from './Screens/MenuScreen'
 import { FeedbackForm } from './components/Feedback'
-import { SignUpForm } from './components/SingUp';
-import { SignInForm } from './components/SignIn';
+import { Header } from './components/Header'
+import { SignUpForm } from './Screens/SingUp';
+import { SignInForm } from './Screens/SignIn';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
+const Stack = createNativeStackNavigator()
+
+const yellow = '#F4CE14'
+const green = '#495E57'
 
 export default function App() {
-
-  const showBody = true
-  const showFeedbackForm = false
-  const showSignUpForm = false
-  const showSignInForm = false
-
   return (
     <View style={styles.container}>
       <Header/>
-      { showBody && <Body/> }
-      { showFeedbackForm && <FeedbackForm/>}
-      { showSignUpForm && <SignUpForm/>}
-      { showSignInForm && <SignInForm/>}
-      <Footer/>
-      <StatusBar style="auto" />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Welcome"
+          screenOptions={{ headerStyle: { backgroundColor: yellow}}}>
+          <Stack.Screen 
+            name="Welcome" 
+            component={ WelcomeScreen }
+            options={{ title: 'Home' }}/>
+          <Stack.Screen name="Menu" component={ MenuScreen }/>
+          <Stack.Screen name="Contact" component={ FeedbackForm }/>
+          <Stack.Screen name="SignIn" component={ SignInForm }/>
+          <Stack.Screen name="SignUp" component={ SignUpForm }/>
+        </Stack.Navigator>      
+      </NavigationContainer>
     </View>
   );
 }
@@ -30,7 +37,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#495E57',
+    backgroundColor: green,
     justifyContent: 'space-between'
   }
 });
